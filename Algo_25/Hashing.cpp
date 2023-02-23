@@ -1,7 +1,20 @@
 //
 // Created by Lenovo on 10/19/2022.
 //
-#include "bits/stdc++.h"
+#include <iostream>
+#include "algorithm"
+#include "vector"
+#include "list"
+#include "utility"
+#include "unordered_map"
+#include "map"
+#include "string"
+using namespace std;
+
+#define ll int
+#define prlong  int(n) cout << n;
+#define loop(n) for( int i = 0; i < n; i++)
+#define rloop(n) for(long long int j = n-1; j>0; j--)
 
 using namespace std;
 
