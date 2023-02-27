@@ -8,7 +8,7 @@
 #include "list"
 #include "utility"
 #include "queue"
-
+#include "set"
 #include "unordered_map"
 #include "map"
 #include "string"
@@ -32,7 +32,7 @@ public:
     void addEdge(int s, int d,int w) {
         adj[s].push_back(make_pair(d,w));
     }
-
+// priority Queue
     vector<int> dijkstra(int S) {
         // {min-dist, node} heap
         priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
@@ -59,6 +59,40 @@ public:
         }
         return dist;
     }
+
+// Using sets
+
+vector<int> dijkstrta_set(int S) {
+
+        set<pair<int,int>> s;
+        vector<int> dist(n,INT_MAX);
+        dist[S] = 0;
+        s.insert({0,S});
+
+        while(!s.empty()) {
+            auto it = *(s.begin());
+            int node =it.second;
+            int dis = it.first;
+            s.erase(it);
+
+            for(int i = 0 ; i < adj[node].size(); i++) {
+                int edgeWeight = adj[node][i].second;
+                int adjNode = adj[node][i].first;
+
+                if(dis + edgeWeight < dist[adjNode]) {
+                    // erase if previous value existed
+                    if(dist[adjNode] != INT_MAX) {
+                        s.erase({dist[adjNode],adjNode});
+                    }
+
+                    dist[adjNode] = dis+ edgeWeight;
+                    s.insert({dist[adjNode],adjNode});
+                }
+            }
+        }
+    return dist;
+    }
+
 };
 
 
@@ -85,7 +119,7 @@ int main () {
 
     vector<int> res;
     res = dijk.dijkstra(0);
-
+    res = dijk.dijkstrta_set(0);
     for(auto i : res) {
         cout << i << " ";
     }
