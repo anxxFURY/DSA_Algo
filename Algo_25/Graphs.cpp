@@ -1,7 +1,3 @@
-//
-// Created by Lenovo on 11/15/2022.
-//
-
 #include <iostream>
 #include "algorithm"
 #include "vector"
@@ -37,7 +33,7 @@ public:
                 adj_matrix[i][j] = false;
             }
         }
-
+        // Adjacency List
         adj_lists = new list<int>[num_vertices];
         visited = new bool [num_vertices];
     }
@@ -62,6 +58,7 @@ public:
         }
     }
     // List adjacency
+
     void addEdge(vector<int> adj[],int s, int d) {
         adj[s].push_back(d);
         adj[d].push_back(s);
@@ -99,23 +96,16 @@ void Graph::DFS(int vertex) {
 }
 
 int main () {
-    vector<int> adj[4];
-    Graph graph(4);
+    int n;
+    cin >> n;
 
-    graph.addEdge(1,0);
-    graph.addEdge(2,1);
-    graph.addEdge(2,1);
 
-   // graph.print();
-    graph.addEdge(adj,1,2);
-    graph.addEdge(adj,2,3);
-    graph.addEdge(adj,1,3);
-    graph.addEdge(adj,0,3);
-    graph.addEdge_DFS(0,1);
-    graph.addEdge_DFS(0,2);
-    graph.addEdge_DFS(1,2);
-    graph.addEdge_DFS(1,3);
-    graph.DFS(3);
+    vector<int> adj[n];
+    Graph graph(n);
+
+    // adjacency list:
+
+    graph.addEdge(adj,)
   //  graph.print_list(adj,4);
     return 0;
 }
