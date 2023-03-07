@@ -55,6 +55,7 @@ public:
                     dist[adjNode] = dis + edgeWeight;
                     pq.push({dist[adjNode],adjNode});
                 }
+
             }
         }
         return dist;
@@ -101,6 +102,9 @@ int main () {
     Dijk dijk(n+1);
 
     // Given graph
+
+    // Shortest path form given source to all other nodes
+    // Storing the shortest path in a vector
     dijk.addEdge(0,1,4);
     dijk.addEdge(0,2,4);
     dijk.addEdge(1,0,4);
@@ -116,6 +120,7 @@ int main () {
     dijk.addEdge(4,5,3);
     dijk.addEdge(5,3,2);
     dijk.addEdge(5,4,3);
+
 
     vector<int> res;
     res = dijk.dijkstra(0);

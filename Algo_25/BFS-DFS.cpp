@@ -79,6 +79,10 @@ public:
 
 
 int main () {
+    vector<bool> flag;
+    if(flag[0])
+        int x = 2;
+
     int n = 11;
     Graph graph(n);
 
